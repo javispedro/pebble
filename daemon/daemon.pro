@@ -28,7 +28,8 @@ SOURCES += \
     bankmanager.cpp \
     uploadmanager.cpp \
     bundle.cpp \
-    appfetchmanager.cc
+    appfetchmanager.cc \
+    blobdbmanager.cc
 
 HEADERS += \
     manager.h \
@@ -49,7 +50,8 @@ HEADERS += \
     bankmanager.h \
     uploadmanager.h \
     bundle.h \
-    appfetchmanager.h
+    appfetchmanager.h \
+    blobdbmanager.h
 
 DBUS_ADAPTORS += ../org.pebbled.Watch.xml
 

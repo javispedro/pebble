@@ -10,6 +10,7 @@
 #include "appmsgmanager.h"
 #include "jskitmanager.h"
 #include "appmanager.h"
+#include "blobdbmanager.h"
 #include "bankmanager.h"
 #include "appfetchmanager.h"
 #include "settings.h"
@@ -41,6 +42,7 @@ class Manager : public QObject, protected QDBusContext
     WatchConnector *watch;
     UploadManager *upload;
     AppManager *apps;
+    BlobDbManager *blobdb;
     BankManager *bank;
     AppFetchManager *fetch;
     VoiceCallManager *voice;

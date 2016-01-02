@@ -153,6 +153,21 @@ public:
         uploadWORKER = 7,
         uploadAPP_ID_FLAG = (1 << 7)
     };
+    enum BlobDbCommand {
+        blobdbINSERT = 1,
+        blobdbDELETE = 4,
+        blobdbCLEAR = 5
+    };
+    enum BlobDbStatus {
+        blobdbSUCCESS = 1,
+        blobdbFAILURE = 2,
+        blobdbINVALID_OPERATION = 3,
+        blobdbINVALID_DATABASE_ID = 4,
+        blobdbINVALID_DATA = 5,
+        blobdbKEY_DOES_NOT_EXIST = 6,
+        blobdbDATABASE_FULL = 7,
+        blobdbDATA_STALE = 8
+    };
     enum PutBytesCommand {
         putbytesINIT = 1,
         putbytesSEND = 2,
