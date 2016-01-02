@@ -11,6 +11,7 @@
 #include "jskitmanager.h"
 #include "appmanager.h"
 #include "blobdbmanager.h"
+#include "timelinemanager.h"
 #include "bankmanager.h"
 #include "appfetchmanager.h"
 #include "settings.h"
@@ -46,6 +47,7 @@ class Manager : public QObject, protected QDBusContext
     BankManager *bank;
     AppFetchManager *fetch;
     VoiceCallManager *voice;
+    TimelineManager *timeline;
     NotificationManager *notifications;
     MusicManager *music;
     DataLogManager *datalog;

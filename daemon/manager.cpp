@@ -15,6 +15,7 @@ Manager::Manager(Settings *settings, QObject *parent) :
     bank(new BankManager(watch, upload, apps, this)),
     fetch(new AppFetchManager(watch, upload, apps, this)),
     voice(new VoiceCallManager(settings, this)),
+    timeline(new TimelineManager(watch, blobdb, this)),
     notifications(new NotificationManager(settings, this)),
     music(new MusicManager(watch, settings, this)),
     datalog(new DataLogManager(watch, this)),
