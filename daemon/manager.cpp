@@ -13,6 +13,7 @@ Manager::Manager(Settings *settings, QObject *parent) :
     upload(new UploadManager(watch, this)),
     apps(new AppManager(this)),
     bank(new BankManager(watch, upload, apps, this)),
+    fetch(new AppFetchManager(watch, upload, apps, this)),
     voice(new VoiceCallManager(settings, this)),
     notifications(new NotificationManager(settings, this)),
     music(new MusicManager(watch, settings, this)),

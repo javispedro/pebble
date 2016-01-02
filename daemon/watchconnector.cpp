@@ -12,7 +12,7 @@
 #include "watchconnector.h"
 
 static const int RECONNECT_TIMEOUT = 500; //ms
-static const bool PROTOCOL_DEBUG = false;
+static const bool PROTOCOL_DEBUG = true;
 
 QDebug operator<< (QDebug d, const WatchConnector::SoftwareVersion &ver) {
     QDebugStateSaver save(d);

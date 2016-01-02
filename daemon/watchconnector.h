@@ -90,6 +90,15 @@ public:
         appmgrREFRESH_APP = 3,
         appmgrGET_APPBANK_UUIDS = 5
     };
+    enum AppFetchMessage {
+        appfetchREQUEST = 1
+    };
+    enum AppFetchStatus {
+        appfetchSTART = 1,
+        appfetchBUSY = 2,
+        appfetchINVALID_UUID = 3,
+        appfetchNO_DATA = 4
+    };
     enum AppMessage {
         appmsgPUSH = 1,
         appmsgREQUEST = 2,
@@ -141,7 +150,8 @@ public:
         uploadRESOURCES = 4,
         uploadBINARY = 5,
         uploadFILE = 6,
-        uploadWORKER = 7
+        uploadWORKER = 7,
+        uploadAPP_ID_FLAG = (1 << 7)
     };
     enum PutBytesCommand {
         putbytesINIT = 1,
