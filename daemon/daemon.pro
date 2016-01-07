@@ -62,6 +62,9 @@ OTHER_FILES += js/typedarray.js
 DEFINES += QUAZIP_STATIC
 include(quazip/quazip.pri)
 
+WATCHFISH_FEATURES = notificationmonitor
+include(libwatchfish/libwatchfish.pri)
+
 INSTALLS += target systemd js
 
 target.path = /usr/bin
