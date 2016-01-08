@@ -2,27 +2,17 @@
 #define NOTIFICATIONMANAGER_H
 
 #include <QObject>
-#include <QtDBus/QDBusContext>
 #include <QLoggingCategory>
+#include "libwatchfish/notification.h"
 #include "settings.h"
 
-#include <QDBusInterface>
-#include <QDBusPendingCallWatcher>
-
-typedef QHash<QString, QString> QStringHash;
-
-class NotificationManager : public QObject, protected QDBusContext
+class NotificationManager : public QObject
 {
     Q_OBJECT
     QLoggingCategory l;
-    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
 
-    Q_PROPERTY(QDBusInterface* interface READ interface)
 public:
     explicit NotificationManager(Settings *settings, QObject *parent = 0);
-            ~NotificationManager();
-
-    QDBusInterface* interface() const;
 
 Q_SIGNALS:
     void error(const QString &message);
@@ -31,21 +21,12 @@ Q_SIGNALS:
     void facebookNotify(const QString &sender, const QString &data);
     void emailNotify(const QString &sender, const QString &data,const QString &subject);
 
-public Q_SLOTS:
-    uint Notify(const QString &app_name, uint replaces_id, const QString &app_icon, const QString &summary, const QString &body, const QStringList &actions, const QVariantHash &hints, int expire_timeout);
-
-protected Q_SLOTS:
-    void initialize(bool notifyError = false);
+private Q_SLOTS:
+    void handleNotification(const watchfish::Notification *notification);
 
 private:
-    class NotificationManagerPrivate *d_ptr;
-
-    QString getCleanAppName(QString app_name);
-    QStringHash getCategoryParams(QString category);
+    QHash<uint, watchfish::Notification*> notifications;
     Settings *settings;
-
-    Q_DISABLE_COPY(NotificationManager)
-    Q_DECLARE_PRIVATE(NotificationManager)
 };
 
 #endif // NOTIFICATIONMANAGER_H
